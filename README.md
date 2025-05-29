@@ -1,73 +1,90 @@
-Project:
-  Title: "RNAfold Acceleration Using Parallel Python"
-  Description: >
-    This project demonstrates how parallel programming in Python can accelerate RNA secondary structure prediction
-    using RNAfold from the ViennaRNA package. It processes ~500 RNA sequences from the Astroviridae family,
-    focusing on overlapping ORF1b–ORF2 regions which are functionally important for viral replication.
+# ⚡ RNAfold Acceleration Using Parallel Python
 
-Overview:
-  Goal: "Predict RNA secondary structures and minimum free energy (MFE) values using RNAfold"
-  Data: "~500 RNA sequences from Astroviridae family (FASTA format)"
-  Technologies:
-    - Python
-    - RNAfold (ViennaRNA Package)
-    - multiprocessing
-    - subprocess
-  Approach:
-    - Serial script (1 core)
-    - Parallel script (5 cores using multiprocessing)
-  Outcome: "Reduced runtime from 56.1s to 13.7s (~4.1× speedup)"
+This project demonstrates how **parallel programming in Python** can speed up RNA secondary structure prediction using **RNAfold** (from the ViennaRNA package). We analyzed ~500 RNA sequences from the **Astroviridae family**, focusing on the overlapping regions between **ORF1b and ORF2** — key sites in viral genome function.
 
-ProjectStructure:
-  Files:
-    - run_serial_rnafold.py: "Serial RNAfold execution script"
-    - run_parallel_rnafold.py: "Parallel execution using multiprocessing"
-    - data/Allastroviridaefamily_sequences.fasta: "Input sequences (50-nt ORF1b–ORF2 overlaps)"
-    - results/serial_results.csv: "Output from serial script"
-    - results/parallel_results.csv: "Output from parallel script"
-    - CPP Project Proposal.pdf: "Detailed final report"
-    - requirements.txt: "Python dependencies"
-    - README.md: "This documentation file"
+---
 
-HowToRun:
-  RNAfoldInstallation: "Install RNAfold from ViennaRNA: https://www.tbi.univie.ac.at/RNA/"
-  PythonPackages:
-    Command: "pip install -r requirements.txt"
-  Commands:
-    - "python run_serial_rnafold.py"
-    - "python run_parallel_rnafold.py"
+## 📌 Overview
 
-PerformanceComparison:
-  Metrics:
-    - Metric: "Execution Time"
-      Serial: "56.1 sec"
-      Parallel: "13.7 sec"
-    - Metric: "Speedup"
-      Serial: "-"
-      Parallel: "4.1×"
-    - Metric: "CPU Usage"
-      Serial: "~20%"
-      Parallel: "~85%"
-    - Metric: "Memory Usage"
-      Serial: "~225 MB"
-      Parallel: "~250 MB"
+- 🎯 **Goal**: Predict RNA secondary structures and Minimum Free Energy (MFE)
+- 🧬 **Dataset**: ~500 sequences extracted from GenBank (Astroviridae family)
+- ⚙️ **Tools Used**: Python, RNAfold, Multiprocessing, Subprocess, CSV
+- 🚀 **Approach**:
+  - Run RNAfold serially and in parallel (5 cores)
+  - Compare speed, CPU usage, and efficiency
+- 📈 **Result**: Execution time reduced from **56.1s → 13.7s** (~**4.1×** speedup)
 
-Dataset:
-  Source: "NCBI Virus Database"
-  Organism: "Astroviridae family"
-  RegionFocus: "50-nt overlaps between ORF1b and ORF2"
-  Format: "FASTA"
+---
 
-AcademicContext:
-  Internship: "Fall 2024"
-  Supervisor: "Professor Andrew Janowski"
-  Institution: "Washington University in St. Louis"
-  Purpose: "To apply parallel computing to real-world bioinformatics analysis"
+## 📁 Project Structure
 
-References:
-  - ViennaRNA Package: "https://rna.tbi.univie.ac.at/cgi-bin/RNAWebSuite/RNAfold.cgi"
-  - NCBI Virus Database: "https://www.ncbi.nlm.nih.gov/labs/virus/vssi/"
-  - Python Multiprocessing Docs: "https://docs.python.org/3/library/multiprocessing.html"
+rnafold-parallel-astrovirus/
+├── run_serial_rnafold.py # Serial processing script
+├── run_parallel_rnafold.py # Parallel processing script using multiprocessing
+├── data/
+│ └── Allastroviridaefamily_sequences.fasta # Input RNA sequences
+├── results/
+│ ├── serial_results.csv
+│ └── parallel_results.csv
+├── CPP Project Proposal.pdf # Full project report with analysis
+├── requirements.txt # Python package list
+└── README.md # This file
 
-Note: >
-  This project is intended for educational and research purposes only. Not for clinical or diagnostic use.
+
+---
+
+## 🛠️ How to Run
+
+### 🔹 1. Install RNAfold
+Download and install [RNAfold (ViennaRNA)](https://www.tbi.univie.ac.at/RNA/). Ensure it’s accessible via terminal/command line.
+
+### 🔹 2. Install Python Dependencies
+```bash
+pip install -r requirements.txt
+
+🔹 3. Run the Scripts
+Serial version:
+
+bash
+Copy
+Edit
+python run_serial_rnafold.py
+Parallel version (5 workers):
+
+bash
+Copy
+Edit
+python run_parallel_rnafold.py
+✅ Output will be saved in the results/ folder.
+
+📊 Performance Comparison
+Metric	Serial Version	Parallel Version (5 Cores)
+Execution Time	56.1 seconds	13.7 seconds
+Speedup	—	4.1× faster
+CPU Usage	~20%	~85%
+Memory Usage	~225 MB	~250 MB
+
+🔬 Dataset Details
+📚 Source: NCBI Virus Database
+
+🧬 Organism: Astroviridae family (human & animal viruses)
+
+📌 Focus: 50-nt RNA segments overlapping ORF1b and ORF2 regions
+
+📄 Format: FASTA
+
+🎓 Project Context
+This project was completed as part of a Fall 2024 internship under Professor Andrew Janowski at Washington University in St. Louis. It applies parallel computing to a real-world RNA structural biology problem in virology.
+
+📚 References
+ViennaRNA RNAfold
+
+NCBI Virus Portal
+
+Python multiprocessing
+
+🧠 Note: This project is intended for educational and research purposes only. Not for clinical or diagnostic use.
+
+yaml
+Copy
+Edit
